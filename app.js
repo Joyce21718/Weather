@@ -14,7 +14,7 @@ const descriptionElement = document.querySelector('.description');
 
 weatherDetails.style.display = 'none';
 
-// Speak weather
+// Speak weather info
 function speakWeatherInfo(city, temp, humidity, wind, description) {
     const message = `Weather in ${city}. 
         Temperature is ${temp}. 
@@ -58,7 +58,7 @@ async function checkWeather(city) {
                 data.weather[0].description
             );
 
-            // Icon switching
+            // Set weather icon
             if (weatherDesc.includes('rain')) {
                 weatherIcon.src = 'assets/img/rain.svg';
             } else if (weatherDesc.includes('drizzle')) {
@@ -86,7 +86,7 @@ async function checkWeather(city) {
     }
 }
 
-// Text search
+// Handle text input
 searchBtn.addEventListener('click', () => {
     checkWeather(searchBox.value);
 });
@@ -104,14 +104,27 @@ if ('webkitSpeechRecognition' in window) {
     recognition.continuous = false;
     recognition.interimResults = false;
 
+    // Start voice
     searchBtn.addEventListener('click', () => {
         recognition.start();
     });
 
     recognition.onresult = function (event) {
-        const transcript = event.results[0][0].transcript;
-        searchBox.value = transcript;
-        checkWeather(transcript);
+        const transcript = event.results[0][0].transcript.toLowerCase();
+        console.log("Transcript:", transcript);
+
+        //  "weather in [city]"
+        const match = transcript.match(/(?:weather\s*(in|for)?\s*)([a-zA-Z\s]+)/);
+        let city = '';
+
+        if (match && match[2]) {
+            city = match[2].trim();
+        } else {
+            city = transcript.trim(); // fallback to full phrase
+        }
+
+        searchBox.value = city;
+        checkWeather(city);
     };
 
     recognition.onerror = function (event) {
