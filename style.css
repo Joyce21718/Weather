@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centering the content horizontally */
+    justify-content: center; /* Centering the content vertically */
+    height: 100vh;
+    text-align: center; /* Centering text */
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px; /* Adds some space between the title and the card */
+}
+
+.title h1 {
+    font-size: 26px;
+    color: white;
+}
+
+.card {
+    width: 90%;
+    max-width: 500px;
+    height: 90vh;
+    background: linear-gradient(145deg, #ff6fd8, #3813c2);
+    color: #fff;
+    margin-top: 20px;
+    border-radius: 20px;
+    padding: 40px 35px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Styling for the Search Box */
+.search {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search input {
+    border: 0;
+    outline: 0;
+    background: white;
+    color: #555;
+    padding: 10px 20px;
+    height: 50px;
+    border-radius: 30px;
+    flex: 1;
+    margin-right: 16px;
+    font-size: 18px;
+}
+
+.search button {
+    border: 0;
+    outline: 0;
+    background: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.search button img {
+    width: 30px;
+}
+
+.weather-icon {
+    width: 100px;
+    margin-top: 30px;
+}
+
+.weather h1 {
+    font-size: 50px;
+    font-weight: 500;
+    margin-top: 15px;
+}
+
+.weather h2 {
+    font-size: 40px;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+.details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-top: 50px;
+}
+
+.col {
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.col img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+.humidity,
+.wind {
+    font-size: 28px;
+    margin-top: -5px;
+}
+
+/* Media Queries for Tablet and Mobile Responsiveness */
+
+/* Tablet (768px and below) */
+@media (max-width: 768px) {
+    body {
+        height: auto; /* Allow height to be flexible */
+        padding: 10px;
+    }
+
+    .title h1 {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    .card {
+        padding: 30px 25px;
+    }
+
+    .search input {
+        padding: 12px 18px;
+        font-size: 16px;
+    }
+
+    .weather h1 {
+        font-size: 45px;
+    }
+
+    .weather h2 {
+        font-size: 36px;
+    }
+
+    .details {
+        flex-direction: column;
+        margin-top: 30px;
+    }
+
+    .col {
+        margin-bottom: 20px;
+        justify-content: center;
+    }
+
+    .col img {
+        width: 30px;
+    }
+
+    .humidity,
+    .wind {
+        font-size: 24px;
+    }
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+    body {
+        height: 100vh; /* Ensures that body takes full viewport height */
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .title {
+        margin-bottom: 20px; /* Adds space between the title and the card */
+    }
+
+    .title h1 {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    .card {
+        padding: 25px 20px;
+    }
+
+    .search input {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    .search button {
+        width: 50px;
+        height: 50px;
+    }
+
+    .weather-icon {
+        width: 80px;
+    }
+
+    .weather h1 {
+        font-size: 40px;
+    }
+
+    .weather h2 {
+        font-size: 32px;
+    }
+
+    .details {
+        flex-direction: column;
+        margin-top: 25px;
+    }
+
+    .col {
+        margin-bottom: 15px;
+        justify-content: center;
+    }
+
+    .col img {
+        width: 30px;
+    }
+
+    .humidity,
+    .wind {
+        font-size: 22px;
+    }
+}
